@@ -1,0 +1,48 @@
+[
+  {
+    "metadata": { "message_type": "session_welcome", "message_id": "welcome" },
+    "payload": {
+      "session": { "id": "session-fixture", "keepalive_timeout_seconds": 10 }
+    }
+  },
+  {
+    "metadata": { "message_type": "notification", "message_id": "chat-1" },
+    "payload": {
+      "subscription": { "type": "channel.chat.message", "version": "1" },
+      "event": {
+        "broadcaster_user_id": "broadcaster",
+        "chatter_user_id": "viewer",
+        "chatter_user_name": "Viewer",
+        "message": { "text": "!ship Add a card" },
+        "badges": [{ "set_id": "moderator", "id": "1", "info": "" }]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "message_type": "session_keepalive",
+      "message_id": "keepalive"
+    },
+    "payload": {}
+  },
+  {
+    "metadata": {
+      "message_type": "session_reconnect",
+      "message_id": "reconnect"
+    },
+    "payload": {
+      "session": {
+        "reconnect_url": "wss://eventsub.wss.twitch.tv/ws?reconnect=fixture"
+      }
+    }
+  },
+  {
+    "metadata": { "message_type": "revocation", "message_id": "revoked" },
+    "payload": {
+      "subscription": {
+        "type": "channel.chat.message",
+        "status": "authorization_revoked"
+      }
+    }
+  }
+]
