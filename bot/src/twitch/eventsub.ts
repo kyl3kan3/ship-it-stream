@@ -102,7 +102,7 @@ export class EventSub implements ChatSource {
       const e = data.payload.event;
       if (
         e.broadcaster_user_id !== this.broadcaster ||
-        e.chatter_user_id === this.bot
+        (e.chatter_user_id === this.bot && !String(e.message?.text ?? "").startsWith("!"))
       )
         return;
       this.callback?.({
